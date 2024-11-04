@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Table(name="evento")
 public class Evento {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_evento", nullable = false)
     private Integer id_evento;
 
@@ -26,7 +27,6 @@ public class Evento {
 
     @Column(name = "num_reservas_actuales", nullable = false)
     private Integer num_reservas_actuales = 0;
-
 
     @ManyToOne
     @JoinColumn(name="id_cat")
