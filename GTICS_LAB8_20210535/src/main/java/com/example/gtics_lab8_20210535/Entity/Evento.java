@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -17,13 +19,13 @@ public class Evento {
     private String nombre;
 
     @Column(name = "fecha", nullable = false)
-    private String fecha;
+    private LocalDate fecha;
 
     @Column(name = "capacidad_maxima", nullable = false)
     private Integer capacidad_maxima;
 
     @Column(name = "num_reservas_actuales", nullable = false)
-    private Integer num_reservas_actuales;
+    private Integer num_reservas_actuales = 0;
 
 
     @ManyToOne
