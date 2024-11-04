@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `categorias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categorias` (
-  `id_cat` int NOT NULL,
+  `id_cat` int NOT NULL AUTO_INCREMENT,
   `categoria` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `evento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `evento` (
-  `id_evento` int NOT NULL,
+  `id_evento` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `fecha` date NOT NULL,
   `capacidad_maxima` int NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `evento` (
   PRIMARY KEY (`id_evento`),
   KEY `fk_evento_categorias_idx` (`id_cat`),
   CONSTRAINT `fk_evento_categorias` FOREIGN KEY (`id_cat`) REFERENCES `categorias` (`id_cat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +67,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
+INSERT INTO `evento` VALUES (1,'Concierto1','2024-05-18',30,15,4),(2,'Concierto2','2024-05-19',30,27,4),(3,'Concierto3','2024-05-20',30,15,4),(4,'Concierto4','2024-05-21',30,15,4),(5,'Concierto5','2024-05-18',30,15,4),(6,'Concierto6','2024-05-19',30,15,4),(7,'Concierto7','2024-05-20',30,15,4),(8,'Concierto8','2024-05-21',30,15,4),(9,'Concierto de Primavera','2024-12-15',500,0,4);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +79,7 @@ DROP TABLE IF EXISTS `reservas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservas` (
-  `id_reserva` int NOT NULL,
+  `id_reserva` int NOT NULL AUTO_INCREMENT,
   `id_evento` int NOT NULL,
   `nombre_reservante` varchar(45) NOT NULL,
   `correo_reservante` varchar(45) NOT NULL,
@@ -107,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-03 21:10:00
+-- Dump completed on 2024-11-03 22:59:49
