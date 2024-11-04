@@ -20,8 +20,8 @@ public class EventoController {
         this.eventoRepository = eventoRepository;
     }
 
-    @GetMapping("/eventos")
-    public List<Evento> getEventos(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
+    @GetMapping({"/eventos", "eventos/{fecha}"})
+    public List<Evento> getEventos(@PathVariable(name = "fecha", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
         if (fecha != null) {
             return eventoRepository.findByFecha(fecha);
         }
